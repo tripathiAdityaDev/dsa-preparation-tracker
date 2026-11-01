@@ -3,7 +3,7 @@
    DSA TRACKER — FRONTEND + BACKEND
 ===================================== */
 
-const API_URL = "http://127.0.0.1:8080/api/questions";
+const API_URL = "https://dsa-preparation-tracker.onrender.com/api/questions";
 
 let questions = [];
 let toastTimeout;
@@ -139,7 +139,7 @@ async function loadQuestions() {
 // 
 async function loadUserProgress() {
     try {
-        const response = await fetch("http://127.0.0.1:8080/api/progress", {
+        const response = await fetch("https://dsa-preparation-tracker.onrender.com/api/progress", {
             credentials: "include"
         });
 
@@ -376,7 +376,7 @@ async function toggleSolved(questionId) {
 
     try {
         const response = await fetch(
-            `http://127.0.0.1:8080/api/progress/${questionId}?solved=${newSolvedStatus}`,
+            `https://dsa-preparation-tracker.onrender.com/api/progress/${questionId}?solved=${newSolvedStatus}`,
             {
                 method: "PUT",
                 credentials: "include"
@@ -569,7 +569,7 @@ loadSavedTheme();
 checkSession();
 async function checkSession() {
     try {
-        const response = await fetch("http://127.0.0.1:8080/api/auth/me", {
+        const response = await fetch("https://dsa-preparation-tracker.onrender.com/api/auth/me", {
             credentials: "include"
         });
 
@@ -603,7 +603,7 @@ loginForm.addEventListener("submit", async function (event) {
     const password = document.getElementById("loginPassword").value;
 
     try {
-        const response = await fetch("http://127.0.0.1:8080/api/auth/login", {
+        const response = await fetch("https://dsa-preparation-tracker.onrender.com/api/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -658,7 +658,7 @@ registerForm.addEventListener("submit", async function (event) {
     const password = document.getElementById("registerPassword").value;
 
     try {
-        const response = await fetch("http://127.0.0.1:8080/api/auth/register", {
+        const response = await fetch("https://dsa-preparation-tracker.onrender.com/api/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
