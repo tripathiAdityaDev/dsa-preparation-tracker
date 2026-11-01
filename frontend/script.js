@@ -384,8 +384,10 @@ async function toggleSolved(questionId) {
         );
 
         if (!response.ok) {
-            throw new Error("Could not update user progress.");
-        }
+            const errorMessage = await response.text();
+            console.log("Progress API response:", response.status, errorMessage);
+            throw new Error(errorMessage || "Could not update user progress.");
+}
 
         // Reload questions and this user's progress
         await loadQuestions();

@@ -7,7 +7,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/progress")
-@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class UserQuestionProgressController {
 
     private final UserQuestionProgressService progressService;
