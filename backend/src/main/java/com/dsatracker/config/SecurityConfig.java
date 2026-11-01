@@ -76,7 +76,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(Arrays.asList(
-            "https://dsa-preparation-tracker.netlify.app",
+            "https://dsa-prepration-tracker.netlify.app",
             "http://127.0.0.1:5500"
         ));
 
