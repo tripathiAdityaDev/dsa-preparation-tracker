@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Tracker | Preparation Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="dashboardScreen" class="app-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">D</div>
+                <span>DSA Tracker</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <p class="nav-label">WORKSPACE</p>
+
+                <a href="#" class="nav-link active" data-page="dashboard">
+                    <span class="nav-icon">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#" class="nav-link" data-page="questions">
+                    <span class="nav-icon">☷</span>
+                    <span>My Questions</span>
+                </a>
+
+                <a href="#" class="nav-link" data-page="revision">
+                    <span class="nav-icon">↻</span>
+                    <span>Revision</span>
+                </a>
+
+                <a href="#" class="nav-link" data-page="analytics">
+                    <span class="nav-icon">▥</span>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-tip">
+                    <p class="tip-title">Keep going!</p>
+                    <p>Consistency beats intensity. Solve one problem at a time.</p>
+                </div>
+
+                <div class="profile">
+                    <div class="profile-avatar">A</div>
+                    <div class="profile-info">
+                        <strong>My Workspace</strong>
+                        <span>DSA preparation</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-title">
+                    <p class="eyebrow">YOUR LEARNING SPACE</p>
+                    <h1>Dashboard</h1>
+                    <p class="header-subtitle">
+                        Track your progress and keep building your problem-solving skills.
+                    </p>
+                </div>
+
+                <div class="header-actions">
+                    <button
+                        id="themeToggle"
+                        class="theme-toggle"
+                        type="button"
+                        aria-label="Toggle light and dark mode"
+                    >
+                        <span id="themeIcon">☾</span>
+                        <span id="themeText">Dark mode</span>
+                    </button>
+
+                    <button id="openAddQuestion" class="primary-button" type="button">
+                        <span>＋</span>
+                        Add Question
+                    </button>
+                </div>
+            </header>
+
+            <!-- Stats -->
+            <section class="stats-grid" aria-label="Study statistics">
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Total Questions</span>
+                        <span class="stat-icon total-icon">☷</span>
+                    </div>
+                    <h2 id="totalQuestions">0</h2>
+                    <p class="stat-description">Questions in your tracker</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Solved</span>
+                        <span class="stat-icon solved-icon">✓</span>
+                    </div>
+                    <h2 id="solvedQuestions">0</h2>
+                    <p class="stat-description">Problems completed</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Unsolved</span>
+                        <span class="stat-icon unsolved-icon">◷</span>
+                    </div>
+                    <h2 id="unsolvedQuestions">0</h2>
+                    <p class="stat-description">Still to be solved</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-label">Completion</span>
+                        <span class="stat-icon completion-icon">↗</span>
+                    </div>
+                    <h2 id="completionPercentage">0%</h2>
+                    <div class="progress-track">
+                        <div id="completionProgress" class="progress-fill"></div>
+                    </div>
+                </article>
+
+            </section>
+
+            <!-- Questions Section -->
+            <section class="questions-section">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>My Questions</h2>
+                        <p>Manage and review your DSA practice problems.</p>
+                    </div>
+
+                    <button id="sectionAddQuestion" class="secondary-button" type="button">
+                        ＋ New question
+                    </button>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="question-toolbar">
+
+                    <div class="search-box">
+                        <span class="search-icon">⌕</span>
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Search questions..."
+                            aria-label="Search questions"
+                        >
+                    </div>
+
+                    <select id="platformFilter" aria-label="Filter by platform">
+                        <option value="">All platforms</option>
+                        <option value="LeetCode">LeetCode</option>
+                        <option value="GeeksforGeeks">GeeksforGeeks</option>
+                        <option value="CodeStudio">CodeStudio</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <select id="topicFilter" aria-label="Filter by topic">
+                        <option value="">All topics</option>
+                        <option value="Arrays">Arrays</option>
+                        <option value="Strings">Strings</option>
+                        <option value="Linked List">Linked List</option>
+                        <option value="Stack">Stack</option>
+                        <option value="Queue">Queue</option>
+                        <option value="Trees">Trees</option>
+                        <option value="Graphs">Graphs</option>
+                        <option value="Dynamic Programming">Dynamic Programming</option>
+                        <option value="Greedy">Greedy</option>
+                        <option value="Heap">Heap</option>
+                        <option value="Trie">Trie</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <select id="difficultyFilter" aria-label="Filter by difficulty">
+                        <option value="">All difficulties</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+
+                    <select id="statusFilter" aria-label="Filter by status">
+                        <option value="">All statuses</option>
+                        <option value="solved">Solved</option>
+                        <option value="unsolved">Unsolved</option>
+                    </select>
+
+                </div>
+
+                <!-- Questions Table -->
+                <div class="table-container">
+                    <table class="questions-table">
+                        <thead>
+                            <tr>
+                                <th>QUESTION</th>
+                                <th>TOPIC</th>
+                                <th>PLATFORM</th>
+                                <th>DIFFICULTY</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="questionsTableBody">
+                            <!-- Question rows will be added by JavaScript -->
+                        </tbody>
+                    </table>
+
+                    <!-- Empty State -->
+                    <div id="emptyState" class="empty-state">
+                        <div class="empty-icon">☷</div>
+                        <h3>No questions found</h3>
+                        <p>Add your first DSA problem or adjust your search filters.</p>
+                        <button id="emptyStateAddQuestion" class="primary-button" type="button">
+                            ＋ Add your first question
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+            <footer class="page-footer">
+                <span>DSA Tracker</span>
+                <span>Keep learning. Keep solving.</span>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Add Question Modal -->
+    <div id="questionModal" class="modal-overlay" aria-hidden="true">
+        <div
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+        >
+            <div class="modal-header">
+                <div>
+                    <p class="eyebrow">QUESTION LIBRARY</p>
+                    <h2 id="modalTitle">Add a question</h2>
+                    <p>Save a problem to your DSA preparation tracker.</p>
+                </div>
+
+                <button
+                    id="closeQuestionModal"
+                    class="close-modal"
+                    type="button"
+                    aria-label="Close modal"
+                >
+                    ×
+                </button>
+            </div>
+
+            <form id="questionForm">
+                <div class="form-group">
+                    <label for="title">Question title</label>
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="e.g. Two Sum"
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="platform">Platform</label>
+                        <select id="platform" required>
+                            <option value="">Select platform</option>
+                            <option value="LeetCode">LeetCode</option>
+                            <option value="GeeksforGeeks">GeeksforGeeks</option>
+                            <option value="CodeStudio">CodeStudio</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">Topic</label>
+                        <input
+                            type="text"
+                            id="topic"
+                            placeholder="e.g. Arrays"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="difficulty">Difficulty</label>
+                        <select id="difficulty" required>
+                            <option value="">Select difficulty</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="problemUrl">Problem URL</label>
+                        <input
+                            type="url"
+                            id="problemUrl"
+                            placeholder="https://..."
+                        >
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button id="cancelQuestion" class="secondary-button" type="button">
+                        Cancel
+                    </button>
+                    <button class="primary-button" type="submit">
+                        Save question
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <!-- Authentication screen will go here -->
+    <div id="authScreen" class="auth-screen">
+    <div class="auth-card">
+        <h1>DSA Tracker</h1>
+        <p>Sign in to track your progress</p>
+
+        <form id="loginForm">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="Enter your email" required>
+
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter your password" required>
+
+            <button class="auth-submit-button" type="submit">
+               <span>Login</span>
+               <span class="auth-button-arrow">→</span>
+            </button>
+            
+        </form>
+        <p class="auth-register" id="loginRegisterText">
+         Don't have an account?
+        <button type="button" id="showRegister">Create account</button>
+        </p>
+        
+     <form id="registerForm" style="display: none;">
+            
+    <label for="registerName">Name</label>
+    <input type="text" id="registerName" placeholder="Enter your name" required>
+
+    <label for="registerEmail">Email</label>
+    <input type="email" id="registerEmail" placeholder="Enter your email" required>
+
+    <label for="registerPassword">Password</label>
+    <input type="password" id="registerPassword" placeholder="Create a password" required>
+
+    <button class="auth-submit-button" type="submit">
+        <span>Create account</span>
+    </button>   
+    </form>
+    <p class="auth-register" id="registerLoginText" style="display: none;">
+        Already have an account?
+        <button type="button" id="showLogin">Login</button>
+    </p>
+
+    </div>
+    <footer class="auth-footer">
+    Created by Aditya Tripathi
+    </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
